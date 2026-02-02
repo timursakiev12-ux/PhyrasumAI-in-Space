@@ -40,14 +40,35 @@ Repeated experiments with identical configurations allow probabilistic modeling 
 ## AI Model
 The core AI component is a supervised neural network trained on experimental data.
 
-### Model characteristics:
-- **Input:** four numerical features describing node relationships;
-- **Output:** probability of connection between node pairs;
-- **Training data:** probability matrices derived from repeated experiments;
-- **Purpose:** learning probabilistic rules of adaptive network formation.
+### Model characteristics
 
-The model is designed to prioritize robustness and adaptability rather than minimal path length or cost.
+The PhysarumAI model is a supervised neural network trained on experimental network data.
 
+- **Input (4 features):**
+  1. Distance between nodes;
+  2. Minimum hub importance of the node pair;
+  3. Maximum hub importance of the node pair;
+  4. Flow competition between alternative paths.
+
+- **Output:**  
+  Probability of a connection forming between a pair of nodes.
+
+- **Training data:**  
+  Probability matrices derived from repeated physical experiments with identical node configurations.
+
+---
+
+### Model training
+
+The model is trained using supervised learning.
+
+Experimental configurations are split into:
+- a **training set**, used to learn probabilistic connection patterns;
+- a **validation set**, used to evaluate model generalization on unseen configurations.
+
+This split is performed at the configuration level to prevent data leakage between training and validation samples.
+
+The trained model is saved and reused for network generation and analysis without retraining.
 ---
 
 ## Network Generation Logic
