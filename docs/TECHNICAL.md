@@ -59,26 +59,65 @@ Generated networks are constructed by applying a user-defined probability thresh
 
 ---
 
-## Software Modules
+## Software Modules and Scripts
 
-### 1. Network Generation Module
-Allows users to:
-- define new node configurations;
-- apply the trained AI model;
-- select probability thresholds;
-- generate adaptive network topologies.
-
-This module demonstrates AI-driven network design beyond classical optimization methods.
-
-### 2. Experimental Data Analysis Module
-Allows users to:
-- select experiment IDs;
-- adjust probability thresholds;
-- visualize real experimentally observed networks.
-
-This module is used for validation and comparison between AI-generated and observed network structures.
+All computational and analytical components of the PhysarumAI MVP are implemented as modular Wolfram Notebook (`.nb`) files and auxiliary scripts. Each file has a clearly defined role, ensuring transparency and reproducibility of the system.
 
 ---
+
+### `PhysarumAI_PredictionV1.nb`
+**Purpose:**  
+Core AI inference module.
+
+**Description:**  
+This notebook contains the trained PhysarumAI neural network used to predict the probability of connections between pairs of nodes. The model serves as the computational core for generating adaptive and resilient network topologies based on probabilistic rules learned from experimental data.
+
+---
+
+### `PhysarumAI_V4.1.nb`
+**Purpose:**  
+Model training and development.
+
+**Description:**  
+This notebook is used for training and experimental tuning of the PhysarumAI neural network. It includes data loading, feature preparation, and model training procedures. The file is intended for research and reproducibility and is not required for running the MVP.
+
+---
+
+### `trainedNet4_flow_groupSplit.wlnet`
+**Purpose:**  
+Serialized trained model.
+
+**Description:**  
+A saved neural network model trained on the experimental dataset. It is loaded by `PhysarumAI_PredictionV1.nb` to perform predictions without retraining.
+
+---
+
+### `experimental_data_viewer.nb`
+**Purpose:**  
+Exploration and visualization of experimental data.
+
+**Description:**  
+This tool enables direct interaction with the experimental dataset. Users can select experiment IDs, adjust probability thresholds, and visualize real networks formed in physical experiments. It is used for data analysis and validation of AI-generated networks.
+
+---
+
+### `scripts/download_data.py`
+**Purpose:**  
+Dataset access helper.
+
+**Description:**  
+An auxiliary script indicating that the PhysarumAI dataset is hosted on Zenodo. It creates the local `data/` directory and documents the expected format of CSV files. The script does not perform automatic data downloading and serves reproducibility and project structure clarity.
+
+---
+
+## Data Handling Note
+Experimental data are stored externally on Zenodo and are not included in the GitHub repository. This separation ensures proper data versioning, scalability, and compliance with best practices for experimental datasets.
+
+---
+
+## Design Rationale
+The separation between model training, inference, experimental data analysis, and dataset storage minimizes hidden assumptions, simplifies validation, and improves reproducibility. This modular architecture supports transparent evaluation by external experts and enables future system extension.
+
 
 ## Technology Stack
 - Wolfram Mathematica (core environment)
