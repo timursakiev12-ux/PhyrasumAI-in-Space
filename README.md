@@ -71,8 +71,8 @@ The MVP is focused on demonstrating adaptive network design principles and does 
 ## Data (Zenodo)
 The AI model is trained and evaluated using an experimental dataset hosted on Zenodo.
 
-- **Dataset source:** Zenodo (DOI: TBD)  
-- **Data type:** network graphs, adjacency matrices, probability matrices  
+- **Dataset source:** Zenodo (DOI: [TBD](https://doi.org/10.5281/zenodo.18411398))  
+- **Data type:** photo, binary images, network graphs, adjacency matrices, probability matrices  
 - **Access:** external download (data not stored in this repository)
 
 A helper script for downloading the dataset will be provided in `scripts/download_data.py`.
